@@ -1,8 +1,8 @@
-# Cling - a new way to invest
+# Cling - a new way to invest (group, commision-free investing)
 
 **Have you ever wanted to invest with you friends or family?**
 
-Cling is an investing app that allows you to create investing clubs, pool money together, and make impactful investments with your friends/family.
+Cling is an group, commision-free, investing app that allows you to create investing clubs, pool money together, and make impactful investments with your friends/family.
 
 ![](https://github.com/Aneeshers/cling/blob/main/ezgif.com-gif-maker.gif)
 
