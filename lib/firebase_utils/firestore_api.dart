@@ -1,4 +1,4 @@
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -203,6 +203,7 @@ class fireAPI {
       group.update({"shares.$symbol": (qty + prev_qty)});
     }
   }
+
   Future<void> addNewUser(
     String alpacaId,
     String fName,

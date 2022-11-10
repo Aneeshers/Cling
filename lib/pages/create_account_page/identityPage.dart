@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:cling/alpaca_account_create_object.dart';
-import 'package:cling/create_account_page/disclosuresPage.dart';
+import 'package:cling/pages/create_account_page/alpaca_account_create_object.dart';
+import 'package:cling/pages/create_account_page/disclosuresPage.dart';
 
 class CreateAccountPage3 extends StatefulWidget {
-  const CreateAccountPage3({Key? key,
-    required this.title,
-    required this.alpacaAccount
-  }) : super(key: key);
+  const CreateAccountPage3(
+      {Key? key, required this.title, required this.alpacaAccount})
+      : super(key: key);
 
   final String title;
   final alpaca_account alpacaAccount;
@@ -44,7 +43,7 @@ class _CreateAccountPageState extends State<CreateAccountPage3> {
   }
 
   void createAccount() {
-    if(_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate()) {
       widget.alpacaAccount.given_name = _fnameController.text;
       widget.alpacaAccount.family_name = _lnameController.text;
       widget.alpacaAccount.date_of_birth = _DOBController.text;
@@ -52,9 +51,11 @@ class _CreateAccountPageState extends State<CreateAccountPage3> {
       widget.alpacaAccount.funding_source = _fundingSourceController.text;
 
       //Navigate to next page
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => CreateAccountPage4(title: 'Disclosures', alpacaAccount: widget.alpacaAccount))
-      );
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CreateAccountPage4(
+                  title: 'Disclosures', alpacaAccount: widget.alpacaAccount)));
     } else {
       print("invalid form");
     }
@@ -73,61 +74,49 @@ class _CreateAccountPageState extends State<CreateAccountPage3> {
             children: <Widget>[
               Center(
                   child: Form(
-                    key: _formKey,
-                    child: Container(
-                        width: MediaQuery.of(context).size.width * .8,
-                        padding: EdgeInsets.only(
-                            bottom: 10.0
-                        ),
-                        child: TextFormField(
-                          controller: _fnameController,
-                          autocorrect: false,
-                          enableSuggestions: false,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.account_circle),
-                              labelText: 'First Name'
-                          ),
-                          validator: (text) {
-                            return null;
-                          },
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                        )
-                    ),
-                  )
-              ),
+                key: _formKey,
+                child: Container(
+                    width: MediaQuery.of(context).size.width * .8,
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: TextFormField(
+                      controller: _fnameController,
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      decoration: const InputDecoration(
+                          icon: Icon(Icons.account_circle),
+                          labelText: 'First Name'),
+                      validator: (text) {
+                        return null;
+                      },
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                    )),
+              )),
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _lnameController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
                         icon: Icon(Icons.account_circle),
-                        labelText: 'Last Name'
-                    ),
+                        labelText: 'Last Name'),
                   ),
                 ),
               ),
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _DOBController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
                         icon: Icon(Icons.date_range),
-                        labelText: 'Date of Birth'
-                    ),
-                    validator: (text) {
-                    },
+                        labelText: 'Date of Birth'),
+                    validator: (text) {},
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
@@ -135,19 +124,15 @@ class _CreateAccountPageState extends State<CreateAccountPage3> {
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _countryController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
                         icon: Icon(Icons.local_airport),
-                        labelText: 'Country of Tax Residency'
-                    ),
-                    validator: (text) {
-                    },
+                        labelText: 'Country of Tax Residency'),
+                    validator: (text) {},
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
@@ -155,19 +140,14 @@ class _CreateAccountPageState extends State<CreateAccountPage3> {
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _fundingSourceController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
-                        icon: Icon(Icons.money),
-                        labelText: 'Funding Source'
-                    ),
-                    validator: (text) {
-                    },
+                        icon: Icon(Icons.money), labelText: 'Funding Source'),
+                    validator: (text) {},
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
@@ -180,8 +160,6 @@ class _CreateAccountPageState extends State<CreateAccountPage3> {
               )
             ],
           ),
-        )
-    );
+        ));
   }
-
 }

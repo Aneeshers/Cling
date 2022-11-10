@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
-import 'firestore_api.dart';
+import '../firebase_utils/firestore_api.dart';
 
 class groupArgs {
   final groupObj group;

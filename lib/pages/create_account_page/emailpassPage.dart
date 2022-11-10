@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cling/alpaca_account_create_object.dart';
-import 'package:cling/create_account_page/contactPage.dart';
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/pages/create_account_page/alpaca_account_create_object.dart';
+import 'package:cling/pages/create_account_page/contactPage.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage(
@@ -52,9 +52,12 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 password: _passwordController.text);
         widget.alpacaAccount.email_address = _emailController.text;
         //await alpacaAPI().createAccount();
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => CreateAccountPage2(title: 'Location Information', alpacaAccount: widget.alpacaAccount))
-        );
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => CreateAccountPage2(
+                    title: 'Location Information',
+                    alpacaAccount: widget.alpacaAccount)));
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           print('The password provided is too weak.');

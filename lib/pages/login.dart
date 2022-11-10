@@ -1,12 +1,12 @@
-import 'package:cling/alpaca_account_create_object.dart';
-import 'package:cling/create_account_page/emailpassPage.dart';
-import 'package:cling/explore.dart';
-import 'package:cling/groupPages.dart';
+import 'package:cling/pages/create_account_page/alpaca_account_create_object.dart';
+import 'package:cling/pages/create_account_page/emailpassPage.dart';
+import 'package:cling/pages/explore.dart';
+import 'package:cling/pages/groupPages.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cling/firestore_api.dart';
-import 'alpaca_api.dart';
-import 'model/stock.dart';
+import 'package:cling/firebase_utils/firestore_api.dart';
+import '../alpaca/alpaca_api.dart';
+import '/model/stock.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);

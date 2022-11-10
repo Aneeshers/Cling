@@ -1,12 +1,11 @@
-import 'package:cling/create_account_page/identityPage.dart';
+import 'package:cling/pages/create_account_page/identityPage.dart';
 import 'package:flutter/material.dart';
-import 'package:cling/alpaca_account_create_object.dart';
+import 'package:cling/pages/create_account_page/alpaca_account_create_object.dart';
 
 class CreateAccountPage2 extends StatefulWidget {
-  const CreateAccountPage2({Key? key,
-    required this.title,
-    required this.alpacaAccount
-  }) : super(key: key);
+  const CreateAccountPage2(
+      {Key? key, required this.title, required this.alpacaAccount})
+      : super(key: key);
 
   final String title;
   final alpaca_account alpacaAccount;
@@ -44,7 +43,7 @@ class _CreateAccountPageState extends State<CreateAccountPage2> {
   }
 
   void createAccount() {
-    if(_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate()) {
       widget.alpacaAccount.street_address = _addressController.text;
       widget.alpacaAccount.city = _cityController.text;
       widget.alpacaAccount.postal_code = _postalcodeController.text;
@@ -52,9 +51,12 @@ class _CreateAccountPageState extends State<CreateAccountPage2> {
       widget.alpacaAccount.phone_number = _phonenumberController.text;
 
       //Navigate to next page
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => CreateAccountPage3(title: 'Identity Information', alpacaAccount: widget.alpacaAccount))
-      );
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CreateAccountPage3(
+                  title: 'Identity Information',
+                  alpacaAccount: widget.alpacaAccount)));
     } else {
       print("invalid form");
     }
@@ -73,61 +75,47 @@ class _CreateAccountPageState extends State<CreateAccountPage2> {
             children: <Widget>[
               Center(
                   child: Form(
-                    key: _formKey,
-                    child: Container(
-                        width: MediaQuery.of(context).size.width * .8,
-                        padding: EdgeInsets.only(
-                            bottom: 10.0
-                        ),
-                        child: TextFormField(
-                          controller: _addressController,
-                          autocorrect: false,
-                          enableSuggestions: false,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.add_location),
-                              labelText: 'Street Address'
-                          ),
-                          validator: (text) {
-                            return null;
-                          },
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                        )
-                    ),
-                  )
-              ),
+                key: _formKey,
+                child: Container(
+                    width: MediaQuery.of(context).size.width * .8,
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: TextFormField(
+                      controller: _addressController,
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      decoration: const InputDecoration(
+                          icon: Icon(Icons.add_location),
+                          labelText: 'Street Address'),
+                      validator: (text) {
+                        return null;
+                      },
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                    )),
+              )),
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _cityController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
-                        icon: Icon(Icons.location_city),
-                        labelText: 'City'
-                    ),
+                        icon: Icon(Icons.location_city), labelText: 'City'),
                   ),
                 ),
               ),
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _stateController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
-                        icon: Icon(Icons.location_city),
-                        labelText: 'State'
-                    ),
-                    validator: (text) {
-                    },
+                        icon: Icon(Icons.location_city), labelText: 'State'),
+                    validator: (text) {},
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
@@ -135,19 +123,15 @@ class _CreateAccountPageState extends State<CreateAccountPage2> {
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _postalcodeController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
                         icon: Icon(Icons.confirmation_number),
-                        labelText: 'Zipcode'
-                    ),
-                    validator: (text) {
-                    },
+                        labelText: 'Zipcode'),
+                    validator: (text) {},
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
@@ -155,19 +139,14 @@ class _CreateAccountPageState extends State<CreateAccountPage2> {
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width * .8,
-                  padding: EdgeInsets.only(
-                      bottom: 10.0
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.0),
                   child: TextFormField(
                     controller: _phonenumberController,
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
-                        icon: Icon(Icons.phone),
-                        labelText: 'Phone Number'
-                    ),
-                    validator: (text) {
-                    },
+                        icon: Icon(Icons.phone), labelText: 'Phone Number'),
+                    validator: (text) {},
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
@@ -180,8 +159,6 @@ class _CreateAccountPageState extends State<CreateAccountPage2> {
               )
             ],
           ),
-        )
-    );
+        ));
   }
-
 }

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert' show jsonDecode;
 import 'package:flutter/services.dart' show rootBundle;
 
-import 'package:cling/datum.dart';
+import 'package:cling/model/datum.dart';
 
 Future<List<Datum>> loadStockData() async {
   final String fileContent = await rootBundle.loadString('assets/data.json');

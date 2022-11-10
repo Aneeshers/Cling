@@ -1,4 +1,4 @@
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

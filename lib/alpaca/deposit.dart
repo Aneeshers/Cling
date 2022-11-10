@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
-import 'package:cling/main.dart';
+import 'package:cling/pages/main.dart';
 import 'dart:convert';
 import 'dart:io';
 

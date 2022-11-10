@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 import 'package:cling/search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cling/model/stock.dart';

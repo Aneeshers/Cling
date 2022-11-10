@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cling/alpaca_account_create_object.dart';
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/pages/create_account_page/alpaca_account_create_object.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 
 class CreateAccountPage4 extends StatefulWidget {
   const CreateAccountPage4(

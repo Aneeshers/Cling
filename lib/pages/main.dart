@@ -1,17 +1,17 @@
-import 'package:cling/alpaca_api.dart';
-import 'package:cling/create_group_page.dart';
-import 'package:cling/groupPages.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
+import 'package:cling/pages/create_group_page.dart';
+import 'package:cling/pages/groupPages.dart';
 import 'package:flutter/material.dart';
-import 'package:cling/explore.dart';
-import 'package:cling/login.dart';
+import 'package:cling/pages/explore.dart';
+import 'package:cling/pages/login.dart';
 import 'package:cling/model/stock.dart';
-import 'package:cling/homePage/homePage.dart';
+import 'package:cling/pages/homePage/homePage.dart';
 import 'package:cling/stockPortfolioPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'create_account_page/emailpassPage.dart';
 import 'package:cling/funding/funding_page.dart';
-import 'firebase_options.dart';
-import 'package:cling/alpaca_account_create_object.dart';
+import '../firebase_utils/firebase_options.dart';
+import 'package:cling/pages/create_account_page/alpaca_account_create_object.dart';
 import 'groupPortfolio.dart';
 
 void main() async {

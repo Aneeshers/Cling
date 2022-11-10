@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:cling/model/stock.dart';
-import 'package:cling/main.dart';
+import 'package:cling/pages/main.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:cling/alpaca_account_create_object.dart';
+import 'package:cling/pages/create_account_page/alpaca_account_create_object.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cling/firestore_api.dart';
+import 'package:cling/firebase_utils/firestore_api.dart';
 
-import 'datum.dart';
+import '../model/datum.dart';
 
 final String authHeader =
     "Basic Q0tMMzRMV1NPT09FU05LWTVMVjA6TFk1cWFaWXZjc0t3THpuOGo0VDVlUzFsbVg0MlgxeEtXMDd3aGxGZg==";

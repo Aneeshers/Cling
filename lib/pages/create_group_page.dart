@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bottom_sheet/bottom_sheet.dart';
-import 'package:cling/firestore_api.dart';
+import 'package:cling/firebase_utils/firestore_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
-import 'package:cling/datum.dart';
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/model/datum.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:readmore/readmore.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';

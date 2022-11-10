@@ -4,10 +4,10 @@ import 'dart:math';
 import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:cling/deposit.dart';
-import 'package:cling/alpaca_api.dart';
+import 'package:cling/alpaca/alpaca_api.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'firestore_api.dart';
+import '../firebase_utils/firestore_api.dart';
 import 'groupPortfolio.dart';
 
 class utils {
