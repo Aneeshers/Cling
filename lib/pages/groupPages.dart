@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:cling/deposit.dart';
+import 'package:cling/alpaca/deposit.dart';
 import 'package:cling/alpaca/alpaca_api.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cling/alpaca/alpaca_api.dart';
-import 'package:cling/search_widget.dart';
+import 'package:cling/pages/search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cling/model/stock.dart';
 
@@ -11,7 +11,7 @@ class FilterNetworkListPage extends StatefulWidget {
 }
 
 class FilterNetworkListPageState extends State<FilterNetworkListPage> {
-  List<Stock> books = [];
+  List<Asset> books = [];
   final buySellManager = alpacaAPI();
   String query = '';
   Timer? debouncer;
@@ -86,7 +86,7 @@ class FilterNetworkListPageState extends State<FilterNetworkListPage> {
         });
       });
 
-  Widget buildBook(Stock book) => ListTile(
+  Widget buildBook(Asset book) => ListTile(
         leading: Image.network(
           book.urlImage,
           fit: BoxFit.cover,

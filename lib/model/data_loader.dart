@@ -4,8 +4,8 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:cling/model/datum.dart';
 
-Future<List<Datum>> loadStockData() async {
+Future<List<QtyPerTime>> loadStockData() async {
   final String fileContent = await rootBundle.loadString('assets/data.json');
   final List<dynamic> data = jsonDecode(fileContent);
-  return data.map((json) => Datum.fromJson(json)).toList();
+  return data.map((json) => QtyPerTime.fromJson(json)).toList();
 }

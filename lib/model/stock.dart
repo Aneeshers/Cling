@@ -1,23 +1,20 @@
 class allStocks {
-  final List<Stock> all;
+  final List<Asset> all;
 
   allStocks(this.all);
-   
 }
 
-
-class Stock
-{
+class Asset {
   final String symbol;
   final String urlImage;
   final String name;
 
-  const Stock({
+  const Asset({
     required this.symbol,
     required this.name,
     required this.urlImage,
   });
-  factory Stock.fromJson(Map<String, dynamic> json) => Stock(
+  factory Asset.fromJson(Map<String, dynamic> json) => Asset(
         symbol: json['symbol'],
         name: json['name'],
         urlImage: json['urlImage'],

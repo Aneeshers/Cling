@@ -132,7 +132,10 @@ class _groupPortfolioState extends State<groupPortfolio> {
               child: Icon(Icons.attach_money),
               children: [
                 SpeedDialChild(
-                  onTap: () {},
+                  onTap: () {
+                    print("buying");
+                    alpaca.tradeNotional(accnum, "AAPL", "", "buy");
+                  },
                   child: Icon(Icons.add_card),
                 ),
               ],

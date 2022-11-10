@@ -76,7 +76,7 @@ class _portfolioPageState extends State<portfolioPage> {
   List<groupObj> groups = [];
 
   void _prepareStockData() async {
-    final List<Datum> data = await alpaca.getWeeklyData(widget.symbol);
+    final List<QtyPerTime> data = await alpaca.getWeeklyData(widget.symbol);
     double minY = double.maxFinite;
     double maxY = double.minPositive;
 

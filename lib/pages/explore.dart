@@ -1,8 +1,8 @@
 import 'package:cling/model/stock.dart';
 import 'package:cling/alpaca/alpaca_api.dart';
-import 'package:cling/search_widget.dart';
+import 'package:cling/pages/search_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:cling/stockPortfolioPage.dart';
+import 'package:cling/pages/stockPortfolioPage.dart';
 
 class FilterLocalListPage extends StatefulWidget {
   FilterLocalListPage({Key? key}) : super(key: key);
@@ -11,11 +11,11 @@ class FilterLocalListPage extends StatefulWidget {
 }
 
 class FilterLocalListPageState extends State<FilterLocalListPage> {
-  late List<Stock> stocks;
+  late List<Asset> stocks;
   final buySellManager = alpacaAPI();
   String query = '';
 
-  List<Stock> alls = [];
+  List<Asset> alls = [];
   void getStocks() async {
     alls = await buySellManager.getAssets();
     if (mounted) {
@@ -111,7 +111,7 @@ class FilterLocalListPageState extends State<FilterLocalListPage> {
         onChanged: searchStocks,
       );
 
-  Widget buildStock(Stock stock) => ListTile(
+  Widget buildStock(Asset stock) => ListTile(
         // leading: Image.network(
         //  stock.urlImage,
         // fit: BoxFit.cover,

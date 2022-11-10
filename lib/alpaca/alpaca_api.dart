@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:cling/model/stock.dart';
-import 'package:cling/pages/main.dart';
+import 'package:cling/main.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -366,15 +366,15 @@ class alpacaAPI {
     return price;
   }
 
-  Future<List<Stock>> searchAssets(String query) async {
+  Future<List<Asset>> searchAssets(String query) async {
     Uri url = Uri.parse(
         'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=$query&apikey=BV7KB38XJD03CHK7');
     final response = await read(url);
     print(jsonDecode(response)['bestMatches']);
-    List<Stock> all = [];
+    List<Asset> all = [];
     for (var result in jsonDecode(response)['bestMatches']) {
       print(result['2. name']);
-      all.add(Stock(
+      all.add(Asset(
           name: result['2. name'],
           symbol: result['1. symbol'],
           urlImage:
@@ -384,7 +384,7 @@ class alpacaAPI {
     return all;
   }
 
-  Future<List<Stock>> getAssets() async {
+  Future<List<Asset>> getAssets() async {
     Uri url = Uri.parse('https://broker-api.sandbox.alpaca.markets/v1/assets');
     final response = await get(
       url,
@@ -393,7 +393,7 @@ class alpacaAPI {
         HttpHeaders.authorizationHeader: authHeader,
       },
     );
-    List<Stock> all = [];
+    List<Asset> all = [];
     for (var symbol in jsonDecode(response.body)) {
       if (symbol['tradable']) {
         String sym = symbol['symbol'];
@@ -402,7 +402,7 @@ class alpacaAPI {
         //final response = await http.head(Uri.parse(logoUrl));
         //if (response.statusCode == 403)
         //{
-        all.add(Stock(
+        all.add(Asset(
             name: symbol['name'], symbol: symbol['symbol'], urlImage: logoUrl));
 
         // }
@@ -437,7 +437,7 @@ class alpacaAPI {
     return m.toString();
   }
 
-  Future<List<Datum>> getWeeklyData(String symbol) async {
+  Future<List<QtyPerTime>> getWeeklyData(String symbol) async {
     var yest = DateTime.now().subtract(Duration(days: 2));
     var l_week = yest.subtract(Duration(days: 7));
     String start =
@@ -454,9 +454,9 @@ class alpacaAPI {
         HttpHeaders.authorizationHeader: authHeader,
       },
     );
-    List<Datum> d = [];
+    List<QtyPerTime> d = [];
     for (var symbol in jsonDecode(response.body)['bars']) {
-      d.add(Datum(
+      d.add(QtyPerTime(
           date: DateTime.parse(symbol['t']), close: symbol['c'].toDouble()));
     }
     return d;
