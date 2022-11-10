@@ -23,7 +23,7 @@ class Order {
   }
 }
 
-// SymPostion obj -- contains market position for a respective asset
+// AssetPos obj -- contains market position for a respective asset
 class AssetPos {
   final String symbol;
   final String qty;
@@ -119,7 +119,7 @@ class AlpacaREST {
 }
 
 // Allows us to access Alpaca User's identity, previous orders,
-// assets' market poisiton, and buying power.
+// assets' market poisitons, and buying power.
 // Crucially, this class also allows an Alpaca User
 // to buy and sell an asset.
 class AlpacaUser {
@@ -174,9 +174,9 @@ class AlpacaUser {
   // Retrieve User's market position for a given Asset.
   // Returns an AssetPos obj -- containing symbol, qty, market value,
   // cost basis, unrealized profit, current price, and change today.
-  Future<AssetPos> getAssetMarketPosition(String symbol, String accNum) async {
+  Future<AssetPos> getAssetMarketPosition(String symbol) async {
     final response = await alpacaRest
-        .GET(brokerV1 + 'trading/accounts/$accNum/positions/$symbol');
+        .GET(brokerV1 + 'trading/accounts/${this.accnum}}/positions/$symbol');
 
     // Safety Check
     alpacaRest.checkResponse(response);
@@ -224,9 +224,8 @@ class AlpacaUser {
 // Access market data through Alpaca's Historical Data Endpoint.
 // Access all tradable assets, their ask price, and weekly data.
 class AlpacaMarket {
+  // Init REST access and Endpoint Prefixes
   final alpacaRest = AlpacaREST();
-
-  // Endpoint Prefixes
   static const brokerV1 = 'https://broker-api.sandbox.alpaca.markets/v1/';
   static const brokerV2 = 'https://data.sandbox.alpaca.markets/v2/';
 
